@@ -3,7 +3,7 @@
 This is a simple application to stream fake data from kafka to elasticsearch.
 The application is made of `producer`, `consumer`, `apache kafka`, and `elasticsearch`.
 
-- The producer gets data form <https://fakerapi.it/api/v2/texts?_quantity=100&_locale=fa_IR>
+- The producer gets data from <https://fakerapi.it/api/v2/texts?_quantity=100&_locale=fa_IR>
   and puts to `Kafka`.
 
 - The consumer reads data from `Kafka` and puts data to `Elasticsearch`.
