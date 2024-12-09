@@ -15,7 +15,7 @@ logger.addHandler(handler)
 
 KAFKA_BROKER_URL = os.environ["KAFKA_BROKER_URL"]
 KAFKA_BROKER_PORT = os.environ["KAFKA_BROKER_PORT"]
-TOPIC_NAME = "faker-data"
+KAFKA_TOPIC = os.environ["KAFKA_TOPIC"]
 FAKER_API_URL = "https://fakerapi.it/api/v2/texts?_quantity=100&_locale=fa_IR"
 
 
@@ -48,7 +48,7 @@ def fetch_data_from_fakerapi():
 def produce_to_kafka(data):
     for item in data:
         try:
-            producer.produce(TOPIC_NAME, json.dumps(item))
+            producer.produce(KAFKA_TOPIC, json.dumps(item))
             producer.poll(0)
             logger.info("Produced data {}".format(item))
         except Exception as e:

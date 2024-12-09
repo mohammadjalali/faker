@@ -12,7 +12,7 @@ ELASTICSEARCH_URL = os.environ["ELASTICSEARCH_URL"]
 ELASTICSEARCH_PORT = os.environ["ELASTICSEARCH_PORT"]
 ELASTICSEARCH_INDEX = os.environ["ELASTICSEARCH_INDEX"]
 
-es = Elasticsearch("{}:{}".format(ELASTICSEARCH_URL, ELASTICSEARCH_PORT))
+elasticsearch = Elasticsearch("{}:{}".format(ELASTICSEARCH_URL, ELASTICSEARCH_PORT))
 
 
 @app.get("/search/")
@@ -48,14 +48,20 @@ async def search(
         except ValueError:
             return {"error": "inserted_at must be in 'YYYY-MM-DD' format"}
 
-    response = es.search(index=ELASTICSEARCH_INDEX, body=query)
+    response = elasticsearch.search(index=ELASTICSEARCH_INDEX, body=query)
 
-    return {
-        "hits": response["hits"]["hits"],
-        "total": response["hits"]["total"]["value"],
-    }
+    return JSONResponse(
+        {
+            "hits": response["hits"]["hits"],
+            "total": response["hits"]["total"]["value"],
+        },
+        status_code=200,
+    )
 
 
 @app.get("/health/")
 async def health_check():
-    return JSONResponse(status_code=200, content={"status": "healthy"})
+    return JSONResponse(
+        content={"status": "healthy"},
+        status_code=200,
+    )

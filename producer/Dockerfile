@@ -4,6 +4,6 @@ WORKDIR /producer/
 
 COPY producer.py requirements.txt /producer/
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "python", "producer.py" ]

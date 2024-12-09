@@ -18,7 +18,7 @@ KAFKA_BROKER_PORT = os.environ["KAFKA_BROKER_PORT"]
 ELASTICSEARCH_URL = os.environ["ELASTICSEARCH_URL"]
 ELASTICSEARCH_PORT = os.environ["ELASTICSEARCH_PORT"]
 ELASTICSEARCH_INDEX = os.environ["ELASTICSEARCH_INDEX"]
-TOPIC_NAME = "faker-data"
+KAFKA_TOPIC = os.environ["KAFKA_TOPIC"]
 FAKER_API_URL = "https://fakerapi.it/api/v2/texts?_quantity=100&_locale=fa_IR"
 GROUP_ID = "book-consumer-group"
 ELASTICSEARCH_HOST = "{}:{}".format(ELASTICSEARCH_URL, ELASTICSEARCH_PORT)
@@ -34,7 +34,7 @@ consumer = Consumer(
     }
 )
 
-consumer.subscribe([TOPIC_NAME])
+consumer.subscribe([KAFKA_TOPIC])
 
 
 def consume_and_store():
