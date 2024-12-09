@@ -13,12 +13,15 @@ The application is made of `producer`, `consumer`, `apache kafka`, and `elastics
 
 - The project is not completed. for completing the project the following steps need to get done.
 
-[] An API for tagging the elasticsearch contents.
+- [ ] An API for tagging the elasticsearch contents.
 
-[] The kafka image in docker compose does not work properly and it is due to the kafka network configuration.
+- [ ] The kafka image in docker compose does not work properly and it is due to the kafka network configuration.
 
 - For the above reason docker compose will not work, but for developing and testing, you can run a kafka image on port `9092`, and run the producer and consumer localy.
 As a result, you can follow the following steps to run the project.
+
+[!Note]
+For running the following steps you need to set environment variables from `.env` file based on your needs.
 
 ```bash
 docker run --port 9092:9092 apache/kafka:3.9.0
