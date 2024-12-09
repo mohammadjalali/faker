@@ -20,7 +20,7 @@ The application is made of `producer`, `consumer`, `apache kafka`, and `elastics
 - For the above reason docker compose will not work, but for developing and testing, you can run a kafka image on port `9092`, and run the producer and consumer localy.
 As a result, you can follow the following steps to run the project.
 
-[!Note]
+[!NOTE]
 For running the following steps you need to set environment variables from `.env` file based on your needs.
 
 ```bash
