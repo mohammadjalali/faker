@@ -24,7 +24,7 @@ docker run --port 9092:9092 apache/kafka:3.9.0
 ```
 
 ```bash
-docker run 
+docker run --port 9200:9200 elasticsearch:7.17.26
 ```
 
 ```bash
