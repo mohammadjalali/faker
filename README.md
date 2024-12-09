@@ -1,4 +1,4 @@
-## FAKER
+## FAKER the Maker
 
 This is a simple application to stream fake data from kafka to elasticsearch.
 The application is made of `producer`, `consumer`, `apache kafka`, and `elasticsearch`.
@@ -11,8 +11,30 @@ The application is made of `producer`, `consumer`, `apache kafka`, and `elastics
 - The api can tag the contents and filter the contents of `Elasticsearch`.
   You can see <http://localhost:8000/docs> to findout what apis you can use.
 
-- For running the whole project, just run the command below.
+- The project is not completed. for completing the project the following steps need to get done.
+
+[] An API for tagging the elasticsearch contents.
+[] The kafka image in docker compose does not work properly and it is due to the kafka network configuration.
+
+- For the above reason docker compose will not work, but for developing and testing, you can run a kafka image on port `9092`, and run the producer and consumer localy.
+As a result, you can follow the following steps to run the project.
 
 ```bash
-docker compose up -d
+docker run --port 9092:9092 apache/kafka:3.9.0
+```
+
+```bash
+docker run 
+```
+
+```bash
+cd producer && pip install -r rquirements.txt && python producer.py
+```
+
+```bash
+cd consumer && pip install -r rquirements.txt && python consumer.py
+```
+
+```bash
+cd api && pip install -r rquirements.txt && fastapi dev run
 ```
